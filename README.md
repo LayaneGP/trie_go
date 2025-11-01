@@ -57,8 +57,7 @@ Utilize estes exemplos de consulta para validar o processamento booleano e o ran
 | :--- | :--- |
 | `technology AND phone` | Interseção ($\text{AND}$) e Relevância Temática. |
 | `economy OR politics` | União ($\text{OR}$) e Ranqueamento em Conjuntos Grandes. |
-| `(apple OR google) AND tech` | Precedência (Parênteses) e Interseção. |
-| `hi-tech` | Tokenização Correta de Palavra Composta (Hífen). |
+| `(phone OR sports) AND tech` | Precedência (Parênteses) e Interseção. |
 
 ### Destaques da Implementação
 
