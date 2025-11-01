@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados da Busca</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="homepage-body">
+  
+<div class="results-main-container">
+    <header class="results-header">
+        <h1 class="results-title">Resultados para a consulta "{{ query }}"</h1>
+      
+        <form action="{{ url_for('results') }}" method="post" class="search-form-mini">
+            <div class="search-bar-container mini-bar">
+                <input type="text" name="query" placeholder="Nova busca..." class="search-input mini-input" autocomplete="off">
+                <input type="hidden" name="page" value="1">
+                <button type="submit" class="search-button mini-button">&#128269;</button>
+            </div>
+        </form>
+    </header>
+
+    {% if mensagem %}
+        <p class="error-message">{{ mensagem }}</p>
+    {% else %}
+        <div class="results-list">
+            {% for doc_id in resultados %}
+                <div class="result-card">
+                    <!-- Título clicável para abrir o arquivo -->
+                    <h3 class="doc-filename">
+                        <a href="{{ url_for('serve_bbc_news', filename=doc_metadata[doc_id]['caminho_relativo']) }}" target="_blank">
+                            {{ doc_metadata[doc_id]["nome"] }}
+                        </a>
+                    </h3>
+                    <p class="doc-snippet">{{ snippets[doc_id]|safe }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="pagination-controls">
+            <form action="/results" method="post" style="display:inline;">
+                <input type="hidden" name="query" value="{{ query }}">
+                <input type="hidden" name="page" value="{{ page - 1 }}">
+                <button type="submit" {% if page <= 1 %}disabled{% endif %} class="page-button prev-button">Anterior</button>
+            </form>
+          
+            <span class="page-status">Página {{ page }} de {{ total_pages }}</span>
+          
+            <form action="/results" method="post" style="display:inline-flex; align-items:center;">
+                <input type="hidden" name="query" value="{{ query }}">
+                <input type="number" name="page" min="1" max="{{ total_pages }}" value="{{ page }}" class="page-input">
+                <button type="submit" class="page-button">Ir</button>
+            </form>
+          
+            <form action="/results" method="post" style="display:inline;">
+                <input type="hidden" name="query" value="{{ query }}">
+                <input type="hidden" name="page" value="{{ page + 1 }}">
+                <button type="submit" {% if page >= total_pages %}disabled{% endif %} class="page-button next-button">Próxima</button>
+            </form>
+        </div>
+    {% endif %}
+
+    <a href="/" class="new-search-link">Nova Busca</a>
+</div>
+
+</body>
+</html>
