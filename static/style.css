@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap'); /*pra usar fonte linda*/
+*, *::before, *::after {
+    box-sizing: border-box; 
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%; 
+    min-height: 100vh;
+}
+
+/*Para pagina inicial*/
+.homepage-body {
+    /* gradiente */
+    background: linear-gradient(135deg, #a745b6 0%, #d84594 40%, #ff6e6e 70%, #996e94 100%);
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    flex-direction: column;
+    color: white;
+}
+
+/*Trie.Go*/
+.main-title {
+    width: 800px;
+    max-width: 90%; 
+    text-align: center;
+    margin: 0 auto 30px auto;
+    font-family: 'Abril Fatface', serif; 
+    font-size: 135px;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    letter-spacing: 2px; 
+    text-shadow: none; 
+}
+
+
+/*Catálogo....*/
+.subtitle-text {
+    font-family: Arial, sans-serif;
+    font-size: 18px; 
+    color: #FFFFFF; 
+    margin-top: 15px;
+    text-align: center; 
+    width: 100%; 
+}
+
+/*Barra de pesquisa*/
+.search-form {
+    width: 800px; 
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    border: 3px solid #DE9DDA; 
+    border-radius: 50px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-input {
+    flex-grow: 1;
+    height: 50px;
+    border: none;
+    padding: 0 20px;
+    font-size: 18px;
+    background: none;
+    outline: none;
+}
+
+/*Lupa*/
+.search-button {
+    background: none;
+    border: none;
+    color: #DE9DDA;
+    font-size: 28px; 
+    padding: 0 18px;
+    height: 50px; 
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.search-button:hover {
+    color: #b3398c;
+}
+
+/*Para pagina de resultados*/
+.results-main-container {
+    background: linear-gradient(135deg, #a745b6 0%, #d84594 40%, #ff6e6e 70%, #996e94 100%);
+    min-height: 100vh;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results-header {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 30px 40px;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.results-title {
+    font-family: Arial, sans-serif;
+    font-size: 32px;
+    color: #6C00D3;
+    margin: 0 0 15px 0;
+    border-bottom: 2px solid #D84594;
+    padding-bottom: 10px;
+}
+
+.results-list {
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.result-card {
+    background-color: #FFFFFF;
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); 
+    border-left: 5px solid #D84594;
+    min-height: 74px;
+}
+
+.doc-filename {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: #000000;
+    margin: 0 0 5px 0;
+}
+
+.doc-snippet {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #444;
+}
+
+
+.doc-snippet .highlight {
+    background-color: #FFFF99; /*marca-texto*/
+    padding: 0 1px;
+    font-weight: bold;
+    color: #000;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.page-button {
+    background-color: #996e94; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.page-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.page-status {
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+}
+
+.new-search-link {
+    color: #D84594; 
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}
+
+.page-input {
+    width: 60px;
+    text-align: center;
+    padding: 8px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 40px; 
+}
